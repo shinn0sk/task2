@@ -1,0 +1,26 @@
+
+- if user.errors.present?
+    ul#error_explanation
+        - user.errors.full_messages.each do |message|
+            li = message
+
+.nav.justify-content-end = link_to '戻る',admin_users_path,class: 'btn btn-primary'
+= form_with model: [ :admin,user ], local: true do |f|
+    .form-group
+        = f.label :name ,'名前'
+        = f.text_field :name , class: 'form-control'
+    .form-group
+        = f.label :email ,'メールアドレス'
+        = f.text_field :email , class: 'form-control'
+    .form-check
+        = f.label :admin,class: 'form-check-label' do
+            = f.check_box :admin,class: 'form_check-input'
+            |  管理者権限
+    .form-group
+        = f.label :password,'パスワード'
+        = f.text_field :password, class:'form-control'
+    .form-group
+        = f.label :password_confimation,'パスワード（確認用）'
+        = f.text_field :password_confimation, class:'form-control'
+    .nav.justify-content-end = f.submit 'ユーザー登録',class: 'btn btn-warning'
+

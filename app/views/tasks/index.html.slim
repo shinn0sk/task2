@@ -3,3 +3,21 @@ p 一覧表示ページ
 
 
 = link_to '新規作成',new_task_path,class: 'btn btn-primary'
+
+.mb-3
+table.table.table-hover
+    tbody
+        th = Task.human_attribute_name(:name)
+        th = Task.human_attribute_name(:created_at)
+        th
+    tbody
+        -@tasks.each do |task|
+            tr
+                td = link_to task.name,task_path(task)
+                td = task.created_at
+                td 
+                    = link_to '編集',edit_task_path(task), class: 'btn btn-primary mr-3'
+                    = link_to '削除',task,method: :delete, data: {confirm: "realy?"},class: 'btn btn-danger '
+
+
+                

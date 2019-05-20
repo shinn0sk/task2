@@ -1,2 +1,4 @@
-h1 Tasks#edit
-p Find me in app/views/tasks/edit.html.slim
+h1 編集画面
+p 詳細内容を編集できます
+
+= render partial: 'form', locals: {task: @task}
