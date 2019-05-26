@@ -12,6 +12,7 @@ h1 登録内容の確認
                 th = Task.human_attribute_name(:body)
                 td = simple_format(@task.body)
                 = f.hidden_field :body
+            
     = f.submit '戻る',name: 'back', class: 'btn btn-primary mr-3'
     = f.submit '登録',class: 'btn btn-success'
 
