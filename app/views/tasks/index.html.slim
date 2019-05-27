@@ -7,6 +7,7 @@ p 一覧表示ページ
 
 
 
+
 table.table.table-hover
     tbody
         th = Task.human_attribute_name(:name)
@@ -21,5 +22,12 @@ table.table.table-hover
                     = link_to '編集',edit_task_path(task), class: 'btn btn-primary mr-3'
                     = link_to '削除',task,method: :delete, data: {confirm: "realy?"},class: 'btn btn-danger '
 
+
+.nav.justify-content-center
+    = page_entries_info @tasks 
+.nav.pagination-lg.justify-content-center
+    = paginate @tasks
+    
+    
 
                 
